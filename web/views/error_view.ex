@@ -1,11 +1,11 @@
 defmodule Api.ErrorView do
 
   def render("404.json", _assigns) do
-    "Page not found"
+    %{error: %{code: 404, message: "Page not found"}}
   end
 
   def render("500.json", _assigns) do
-    "Server internal error"
+    %{error: %{code: 500, message: "Server internal error"}}
   end
 
   # In case no render clause matches or no

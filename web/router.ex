@@ -21,9 +21,9 @@ defmodule Api.Router do
   def extract_version(conn) do
     case get_req_header(conn, "accept") do
       [accept_header] ->
-        case Regex.scan(@regex, accept_header) do
-          [[version_type, @vendor, version, base_type] | _] when version in @versions ->
-            {convert_media_type(conn, accept_header, version_type, base_type), version}
+        case Regex.scan(@regex, accept_header, capture: :all_but_first) do
+          [[@vendor, version, base_type] | _] when version in @versions ->
+            {convert_media_type(conn, accept_header, base_type), version}
           _ ->
             {conn, @default}
         end
@@ -32,7 +32,7 @@ defmodule Api.Router do
     end
   end
 
-  defp convert_media_type(conn, accept_header, media_type, base_type) do
+  defp convert_media_type(conn, accept_header, base_type) do
     conn
     |> Map.update!(:req_headers, fn req_headers ->
       req_headers
