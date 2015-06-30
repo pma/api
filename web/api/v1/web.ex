@@ -1,4 +1,4 @@
-defmodule Api.Web do
+defmodule Api.V1.Web do
   @moduledoc """
   A module that keeps using definitions for controllers,
   views and so on.
@@ -27,7 +27,7 @@ defmodule Api.Web do
       use Phoenix.Controller
 
       # Import URL helpers from the router
-      import Api.Router.Helpers
+      import Api.V1.Router.Helpers
     end
   end
 
@@ -39,7 +39,7 @@ defmodule Api.Web do
       import Phoenix.Controller, only: [get_csrf_token: 0, get_flash: 2, view_module: 1]
 
       # Import URL helpers from the router
-      import Api.Router.Helpers
+      import Api.V1.Router.Helpers
 
     end
   end

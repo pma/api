@@ -10,7 +10,7 @@ config :api, Api.Endpoint,
   url: [host: "localhost"],
   root: Path.dirname(__DIR__),
   secret_key_base: "INDMMLvQZ2at7+PJTt/dzclvQS2x4bh8hHdbPiXoI9UIixroBYNcjDTIMu/6jZtk",
-  render_errors: [view: ProxyPay.ErrorView, default_format: "json"],
+  render_errors: [view: Api.ErrorView, default_format: "json"],
   debug_errors: false,
   pubsub: [name: Api.PubSub,
            adapter: Phoenix.PubSub.PG2]
