@@ -8,7 +8,7 @@ defmodule Api.VersionRouter do
     end
   end
 
-  def api_version(conn) do
+  def api_version(_conn) do
     "v1"
   end
 end
